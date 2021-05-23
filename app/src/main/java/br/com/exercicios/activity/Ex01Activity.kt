@@ -77,12 +77,21 @@ class Ex01Activity : AppCompatActivity() {
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val color = prefs.getInt("noteColor", R.color.noteDefaultColor)
+        val sizeTitle = prefs.getString("sizeTitle", R.string.noteDefaultSizeTitle.toString())
+        val sizeDesc = prefs.getString("sizeDesc", R.string.noteDefaultSizeDesc.toString())
 
         notes.forEach {
             val cardBinding = CardNoteBinding.inflate(layoutInflater)
             cardBinding.txtTitle.text = it.title
             cardBinding.txtDesc.text = it.desc
             cardBinding.txtUser.text = it.user
+
+            if(!sizeTitle.isNullOrBlank() && sizeTitle.toFloatOrNull() != null)
+                cardBinding.txtTitle.textSize = sizeTitle.toFloat()
+
+            if(!sizeDesc.isNullOrBlank() && sizeDesc.toFloatOrNull() != null)
+                cardBinding.txtDesc.textSize = sizeDesc.toFloat()
+
             cardBinding.btnRemove.setOnClickListener{ view ->
                 Thread {
                     removeNote(it)

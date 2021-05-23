@@ -9,5 +9,19 @@
             android:title="Note color">
 
         </com.jaredrummler.android.colorpicker.ColorPreferenceCompat>
+        <EditTextPreference
+            android:defaultValue="18"
+            android:key="sizeTitle"
+            android:selectAllOnFocus="true"
+            android:summary="Escolha o tamanho da fonte do título"
+            android:title="Tamanho da fonte do título" />
+        <EditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="14"
+            android:key="sizeDesc"
+            android:selectAllOnFocus="true"
+            android:summary="Escolha o tamanho da fonte da descrição"
+            android:title="Tamanho da fonte da descrição" />
     </PreferenceCategory>
 </PreferenceScreen>
