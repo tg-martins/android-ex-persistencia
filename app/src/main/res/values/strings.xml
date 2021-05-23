@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Exercicios Persistencia</string>
+    <color name="noteDefaultColor">#FFFFFF</color>
+</resources>
