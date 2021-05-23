@@ -18,14 +18,11 @@ import br.com.exercicios.model.Note
 
 class Ex01Activity : AppCompatActivity() {
     private lateinit var binding: ActivityEx01Binding
-    private lateinit var database: Any
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEx01Binding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        database = Room.databaseBuilder(this, Database::class.java, "AppDb").build()
 
         binding.fab.setOnClickListener() {
             startActivity(Intent(this, NewNoteActivity::class.java))
@@ -77,6 +74,7 @@ class Ex01Activity : AppCompatActivity() {
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val color = prefs.getInt("noteColor", R.color.noteDefaultColor)
+        val colorText = prefs.getInt("noteColorText", R.color.noteColorText)
         val sizeTitle = prefs.getString("sizeTitle", R.string.noteDefaultSizeTitle.toString())
         val sizeDesc = prefs.getString("sizeDesc", R.string.noteDefaultSizeDesc.toString())
 
@@ -91,6 +89,9 @@ class Ex01Activity : AppCompatActivity() {
 
             if(!sizeDesc.isNullOrBlank() && sizeDesc.toFloatOrNull() != null)
                 cardBinding.txtDesc.textSize = sizeDesc.toFloat()
+
+            cardBinding.txtTitle.setTextColor(colorText)
+            cardBinding.txtDesc.setTextColor(colorText)
 
             cardBinding.btnRemove.setOnClickListener{ view ->
                 Thread {

@@ -16,21 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
-            android:text="Exercício 1" />
-
-        <Button
-            android:id="@+id/btnEx2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            android:text="Exercício 2" />
-
-        <Button
-            android:id="@+id/btnEx3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            android:text="Exercício 3" />
+            android:text="Exercício 1 até 3" />
 
         <Button
             android:id="@+id/btnEx4"

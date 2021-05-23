@@ -19,14 +19,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, Ex01Activity::class.java))
         }
 
-        binding.btnEx2.setOnClickListener {
-            startActivity(Intent(this, Ex02Activity::class.java))
-        }
-
-        binding.btnEx3.setOnClickListener {
-            startActivity(Intent(this, Ex03Activity::class.java))
-        }
-
         binding.btnEx4.setOnClickListener {
             startActivity(Intent(this, Ex04Activity::class.java))
         }
