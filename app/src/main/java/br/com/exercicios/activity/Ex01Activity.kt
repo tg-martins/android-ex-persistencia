@@ -1,9 +1,11 @@
 package br.com.exercicios.activity
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.JsonWriter
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,6 +17,7 @@ import br.com.exercicios.databinding.ActivityEx01Binding
 import br.com.exercicios.databinding.CardNoteBinding
 import br.com.exercicios.db.Database
 import br.com.exercicios.model.Note
+import com.jaredrummler.android.colorpicker.ColorPickerDialog
 
 class Ex01Activity : AppCompatActivity() {
     private lateinit var binding: ActivityEx01Binding
@@ -62,7 +65,7 @@ class Ex01Activity : AppCompatActivity() {
     }
 
     fun listNotes(): List<Note> {
-        val database = Room.databaseBuilder(this, Database::class.java, "AppDb").build()
+        val database = Room.databaseBuilder(this, Database::class.java, "AppDb").fallbackToDestructiveMigration().build()
 
         return database
             .noteDao()
@@ -75,6 +78,7 @@ class Ex01Activity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val color = prefs.getInt("noteColor", R.color.noteDefaultColor)
         val colorText = prefs.getInt("noteColorText", R.color.noteColorText)
+        Log.d("Main", colorText.toString())
         val sizeTitle = prefs.getString("sizeTitle", R.string.noteDefaultSizeTitle.toString())
         val sizeDesc = prefs.getString("sizeDesc", R.string.noteDefaultSizeDesc.toString())
 
@@ -83,6 +87,7 @@ class Ex01Activity : AppCompatActivity() {
             cardBinding.txtTitle.text = it.title
             cardBinding.txtDesc.text = it.desc
             cardBinding.txtUser.text = it.user
+            cardBinding.root.setCardBackgroundColor(it.colorBackground)
 
             if(!sizeTitle.isNullOrBlank() && sizeTitle.toFloatOrNull() != null)
                 cardBinding.txtTitle.textSize = sizeTitle.toFloat()
@@ -109,7 +114,7 @@ class Ex01Activity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            cardBinding.root.setCardBackgroundColor(color)
+            //cardBinding.root.setCardBackgroundColor(color)
 
             binding.noteContainer.addView(cardBinding.root)
         }

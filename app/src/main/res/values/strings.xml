@@ -4,4 +4,6 @@
     <color name="noteColorText">#FF000000</color>
     <string name="noteDefaultSizeTitle">18</string>
     <string name="noteDefaultSizeDesc">14</string>
+    <string name="selectColorLabel">Selecionar Cor</string>
+    <string name="selectColorButton">Selecionar</string>
 </resources>

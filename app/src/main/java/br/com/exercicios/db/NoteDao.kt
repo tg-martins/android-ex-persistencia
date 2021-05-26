@@ -21,6 +21,6 @@ interface NoteDao {
     fun delete(note: Note)
 
 
-    @Query("UPDATE Note SET title=:title, `desc`=:description WHERE id = :id")
-    fun update(id: Int, title: String, description: String)
+    @Query("UPDATE Note SET title=:title, `desc`=:description, colorBackground=:colorBackground WHERE id = :id")
+    fun update(id: Int, title: String, description: String, colorBackground: Int)
 }

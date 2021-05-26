@@ -5,14 +5,14 @@
         <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
             android:defaultValue="@color/noteDefaultColor"
             android:key="noteColor"
-            android:summary="Pick a color"
-            android:title="Note color">
+            android:summary="Defina a cor padrão do fundo da nota"
+            android:title="Cor da nota">
 
         </com.jaredrummler.android.colorpicker.ColorPreferenceCompat>
         <com.jaredrummler.android.colorpicker.ColorPreferenceCompat
             android:defaultValue="@color/noteColorText"
             android:key="noteColorText"
-            android:summary="Defina a cor do texto do conteudo"
+            android:summary="Defina a cor padrão do texto do conteudo"
             android:title="Cor do texto">
 
         </com.jaredrummler.android.colorpicker.ColorPreferenceCompat>
